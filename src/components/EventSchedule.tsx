@@ -1,7 +1,7 @@
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Music, Music2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 interface ScheduleItemProps {
   time: string;
@@ -33,6 +33,12 @@ const ScheduleItem = ({ time, title, artist, stage, className, index }: Schedule
 };
 
 const EventSchedule = () => {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
   const scheduleData = {
     "day1": [
       { time: "2:00 PM", title: "Opening Ceremony", artist: "Host: DJ Spinall", stage: "Main Stage" },
@@ -53,11 +59,45 @@ const EventSchedule = () => {
   };
 
   return (
-    <section id="schedule" className="py-24 relative">
-      {/* Background decoration */}
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-lekompo-yellow/10 rounded-tr-full blur-3xl opacity-20 animate-pulse" />
+    <section id="schedule" className="py-24 relative overflow-hidden">
+      {/* Animated background decoration */}
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-lekompo-yellow/10 rounded-tr-full blur-3xl opacity-20 animate-pulse-gentle" />
+      <div className="absolute top-0 right-0 w-2/5 h-2/5 bg-lekompo-green/10 rounded-bl-full blur-3xl opacity-15 animate-pulse-gentle" style={{animationDelay: '1.5s'}} />
       
-      <div className="container mx-auto px-4 md:px-6">
+      {/* Animated background grid */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="w-full h-full" 
+             style={{
+               backgroundImage: `
+                 linear-gradient(to right, rgba(155, 135, 245, 0.2) 1px, transparent 1px),
+                 linear-gradient(to bottom, rgba(155, 135, 245, 0.2) 1px, transparent 1px)
+               `,
+               backgroundSize: '50px 50px',
+               animation: 'fadeInUp 1s ease-out forwards'
+             }} 
+        />
+      </div>
+      
+      {/* Floating music notes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {mounted && Array.from({ length: 8 }).map((_, i) => (
+          <div 
+            key={i}
+            className="absolute text-lekompo-purple opacity-20"
+            style={{
+              fontSize: Math.random() * 20 + 20 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+              animation: `float ${Math.random() * 10 + 15}s linear infinite`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          >
+            {['♪', '♫', '♬', '♩'][Math.floor(Math.random() * 4)]}
+          </div>
+        ))}
+      </div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <span className="inline-block py-1 px-3 rounded-full bg-lekompo-yellow/30 text-lekompo-blue text-sm font-medium mb-4">
             Plan Your Experience

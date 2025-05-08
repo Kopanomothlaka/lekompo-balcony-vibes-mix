@@ -1,8 +1,15 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
   return (
     <section 
       id="hero" 
@@ -11,12 +18,30 @@ const Hero = () => {
         background: `radial-gradient(circle at center, rgba(6, 182, 212, 0.2) 0%, rgba(15, 15, 15, 1) 70%)`,
       }}
     >
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute w-96 h-96 rounded-full bg-lekompo-orange blur-[100px] -top-20 -left-20 animate-pulse" />
-        <div className="absolute w-96 h-96 rounded-full bg-lekompo-blue blur-[100px] bottom-10 right-10 animate-pulse" />
-        <div className="absolute w-64 h-64 rounded-full bg-lekompo-green blur-[80px] top-40 right-20 animate-pulse" />
-        <div className="absolute w-64 h-64 rounded-full bg-lekompo-yellow blur-[80px] bottom-40 left-20 animate-pulse" />
+      {/* Animated background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+        <div className="absolute w-96 h-96 rounded-full bg-lekompo-orange blur-[100px] -top-20 -left-20 animate-pulse-gentle" />
+        <div className="absolute w-96 h-96 rounded-full bg-lekompo-blue blur-[100px] bottom-10 right-10 animate-pulse-gentle" style={{animationDelay: '1s'}} />
+        <div className="absolute w-64 h-64 rounded-full bg-lekompo-green blur-[80px] top-40 right-20 animate-pulse-gentle" style={{animationDelay: '1.5s'}} />
+        <div className="absolute w-64 h-64 rounded-full bg-lekompo-yellow blur-[80px] bottom-40 left-20 animate-pulse-gentle" style={{animationDelay: '0.5s'}} />
+        
+        {/* Floating particles */}
+        <div className="absolute w-full h-full">
+          {mounted && Array.from({ length: 20 }).map((_, i) => (
+            <div 
+              key={i}
+              className="absolute rounded-full bg-white opacity-30"
+              style={{
+                width: Math.random() * 6 + 2 + 'px',
+                height: Math.random() * 6 + 2 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
       </div>
       
       {/* Content */}

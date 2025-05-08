@@ -98,18 +98,35 @@ export default {
 				},
 				'pulse-gentle': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.8' }
+					'50%': { opacity: '0.7' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-10px)' }
+					'50%': { transform: 'translateY(-15px)' }
+				},
+				'floatX': {
+					'0%, 100%': { transform: 'translateX(0)' },
+					'50%': { transform: 'translateX(15px)' }
+				},
+				'gradientFlow': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'rotateVinyl': {
+					'from': { transform: 'rotate(0deg)' },
+					'to': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-gentle': 'pulse-gentle 3s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'pulse-gentle': 'pulse-gentle 6s ease-in-out infinite',
+				'float': 'float 8s ease-in-out infinite',
+				'float-slow': 'float 12s ease-in-out infinite',
+				'float-x': 'floatX 10s ease-in-out infinite',
+				'gradient-flow': 'gradientFlow 15s ease infinite',
+				'rotate-vinyl': 'rotateVinyl 8s linear infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],

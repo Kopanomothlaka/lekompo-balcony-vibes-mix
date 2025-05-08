@@ -1,12 +1,10 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
 const galleryImages = [
   "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=2070&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=2070&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=2070&auto=format&fit=crop",
@@ -16,10 +14,46 @@ const galleryImages = [
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <section id="gallery" className="py-24 bg-gradient-to-b from-lekompo-dark to-lekompo-dark/90">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="gallery" className="py-24 bg-gradient-to-b from-lekompo-dark to-lekompo-dark/90 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute w-full h-full opacity-10"
+             style={{
+               backgroundImage: `radial-gradient(circle at 50% 50%, rgba(155, 135, 245, 0.4) 0%, transparent 50%), 
+                               radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.3) 0%, transparent 40%), 
+                               radial-gradient(circle at 80% 80%, rgba(101, 163, 13, 0.3) 0%, transparent 40%)`,
+               animation: 'gradientFlow 15s ease infinite'
+             }} 
+        />
+        
+        {/* Animated particles */}
+        <div className="absolute inset-0">
+          {mounted && Array.from({ length: 15 }).map((_, i) => (
+            <div 
+              key={i}
+              className="absolute bg-white rounded-full"
+              style={{
+                width: Math.random() * 4 + 1 + 'px',
+                height: Math.random() * 4 + 1 + 'px',
+                opacity: Math.random() * 0.5 + 0.2,
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                animation: `float ${Math.random() * 15 + 10}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <span className="inline-block py-1 px-3 rounded-full bg-lekompo-purple/30 text-lekompo-orange text-sm font-medium mb-4">
             Captured Moments
