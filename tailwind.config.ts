@@ -71,6 +71,7 @@ export default {
 					black: '#0F0F0F',
 					light: '#E5DEFF',
 					dark: '#1A1F2C',
+					purple: '#9b87f5',
 				}
 			},
 			borderRadius: {

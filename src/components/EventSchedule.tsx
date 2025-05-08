@@ -9,14 +9,17 @@ interface ScheduleItemProps {
   artist: string;
   stage: string;
   className?: string;
+  index: number;
 }
 
-const ScheduleItem = ({ time, title, artist, stage, className }: ScheduleItemProps) => {
+const ScheduleItem = ({ time, title, artist, stage, className, index }: ScheduleItemProps) => {
   return (
     <div className={cn(
-      "flex flex-col md:flex-row items-start md:items-center gap-4 p-4 rounded-lg hover:bg-lekompo-blue/10 transition-all duration-200",
+      "flex flex-col md:flex-row items-start md:items-center gap-4 p-4 rounded-lg hover:bg-lekompo-blue/10 transition-all duration-300 animate-fade-in-left",
       className
-    )}>
+    )}
+    style={{ animationDelay: `${index * 100}ms` }}
+    >
       <div className="w-full md:w-24 font-medium text-lekompo-yellow">{time}</div>
       <div className="flex-1">
         <h4 className="text-lg font-semibold text-white">{title}</h4>
@@ -52,38 +55,38 @@ const EventSchedule = () => {
   return (
     <section id="schedule" className="py-24 relative">
       {/* Background decoration */}
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-lekompo-yellow/10 rounded-tr-full blur-3xl opacity-20" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-lekompo-yellow/10 rounded-tr-full blur-3xl opacity-20 animate-pulse" />
       
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <span className="inline-block py-1 px-3 rounded-full bg-lekompo-yellow/30 text-lekompo-blue text-sm font-medium mb-4">
             Plan Your Experience
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Event <span className="gradient-text-alt">Schedule</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Event <span className="gradient-text-alt animate-gradient">Schedule</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Check out our lineup of performances across multiple stages. Don't miss your favorite artists!
           </p>
         </div>
         
-        <Tabs defaultValue="day1" className="max-w-4xl mx-auto">
+        <Tabs defaultValue="day1" className="max-w-4xl mx-auto animate-fade-in-up delay-200">
           <TabsList className="grid w-full grid-cols-2 mb-8 bg-lekompo-dark">
             <TabsTrigger 
               value="day1" 
-              className="data-[state=active]:bg-lekompo-blue data-[state=active]:text-white"
+              className="data-[state=active]:bg-lekompo-blue data-[state=active]:text-white transition-all duration-300"
             >
               <Music2 className="mr-2 h-4 w-4" />
               Day 1 - June 15
             </TabsTrigger>
             <TabsTrigger 
               value="day2"
-              className="data-[state=active]:bg-lekompo-blue data-[state=active]:text-white"
+              className="data-[state=active]:bg-lekompo-blue data-[state=active]:text-white transition-all duration-300"
             >
               <Music2 className="mr-2 h-4 w-4" />
               Day 2 - June 16
             </TabsTrigger>
           </TabsList>
           
-          <div className="bg-lekompo-black/50 backdrop-blur-sm rounded-lg p-1 md:p-6">
+          <div className="bg-lekompo-black/50 backdrop-blur-sm rounded-lg p-1 md:p-6 animate-fade-in-up delay-300">
             <TabsContent value="day1" className="space-y-1 mt-0">
               {scheduleData.day1.map((item, index) => (
                 <ScheduleItem
@@ -92,6 +95,7 @@ const EventSchedule = () => {
                   title={item.title}
                   artist={item.artist}
                   stage={item.stage}
+                  index={index}
                 />
               ))}
             </TabsContent>
@@ -104,15 +108,16 @@ const EventSchedule = () => {
                   title={item.title}
                   artist={item.artist}
                   stage={item.stage}
+                  index={index}
                 />
               ))}
             </TabsContent>
           </div>
         </Tabs>
         
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-lekompo-yellow/20 text-lekompo-yellow">
-            <Music className="mr-2 h-5 w-5" />
+        <div className="text-center mt-12 animate-fade-in-up delay-400">
+          <div className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-lekompo-yellow/20 text-lekompo-yellow transition-transform hover:scale-105 duration-300">
+            <Music className="mr-2 h-5 w-5 animate-pulse" />
             <span>Schedule subject to change</span>
           </div>
         </div>

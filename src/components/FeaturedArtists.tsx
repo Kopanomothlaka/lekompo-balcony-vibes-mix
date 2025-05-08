@@ -67,22 +67,22 @@ const FeaturedArtists = () => {
   return (
     <section id="artists" className="py-24 bg-lekompo-black relative">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-lekompo-blue/10 rounded-bl-full blur-3xl opacity-20" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-lekompo-blue/10 rounded-bl-full blur-3xl opacity-20 animate-pulse" />
       
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <span className="inline-block py-1 px-3 rounded-full bg-lekompo-green/30 text-lekompo-yellow text-sm font-medium mb-4">
             The Lineup
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured <span className="gradient-text">Artists</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured <span className="gradient-text animate-gradient">Artists</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Meet the incredible talent that will be gracing our stages. These artists will be performing their hit songs with fans and industry faces.
           </p>
         </div>
         
         {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {filters.map(filter => (
+        <div className="flex flex-wrap justify-center gap-2 mb-12 animate-fade-in-up delay-200">
+          {filters.map((filter, index) => (
             <Button
               key={filter}
               onClick={() => setActiveFilter(filter)}
@@ -90,7 +90,8 @@ const FeaturedArtists = () => {
               className={cn(
                 activeFilter === filter 
                   ? "bg-lekompo-blue hover:bg-lekompo-green"
-                  : "border-lekompo-yellow text-white hover:bg-lekompo-yellow/20"
+                  : "border-lekompo-yellow text-white hover:bg-lekompo-yellow/20",
+                "transition-all duration-300 hover:scale-105"
               )}
             >
               {filter}
@@ -101,18 +102,19 @@ const FeaturedArtists = () => {
         {/* Artists grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredArtists.map((artist, index) => (
-            <ArtistCard 
-              key={index} 
-              name={artist.name} 
-              image={artist.image} 
-              role={artist.role} 
-              genre={artist.genre} 
-            />
+            <div key={index} className={`animate-fade-in-up delay-${Math.min(index * 100, 500)}`}>
+              <ArtistCard 
+                name={artist.name} 
+                image={artist.image} 
+                role={artist.role} 
+                genre={artist.genre} 
+              />
+            </div>
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8">
+        <div className="text-center mt-12 animate-fade-in-up delay-500">
+          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8 transition-transform duration-300 hover:scale-105">
             View All Artists
           </Button>
         </div>

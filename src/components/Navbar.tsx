@@ -33,49 +33,50 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled ? "bg-lekompo-black/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center space-x-2 text-xl font-display font-bold">
-          <Music2 className="h-6 w-6 text-lekompo-yellow" />
+        <a href="#" className="flex items-center space-x-2 text-xl font-display font-bold animate-fade-in-left">
+          <Music2 className="h-6 w-6 text-lekompo-yellow animate-pulse" />
           <div>
-            <span className="gradient-text">LEKOMPO</span>
-            <span className="gradient-text-alt ml-1">CHILLAS MIX</span>
+            <span className="gradient-text animate-gradient">LEKOMPO</span>
+            <span className="gradient-text-alt animate-gradient ml-1">CHILLAS MIX</span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-white hover:text-lekompo-blue transition-colors duration-200"
+              className="text-white hover:text-lekompo-blue transition-colors duration-300 hover:-translate-y-1 animate-fade-in-right"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {link.name}
             </a>
           ))}
-          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white">
+          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white transition-transform duration-300 hover:scale-105 animate-fade-in-right" style={{ animationDelay: "500ms" }}>
             Book Now
           </Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
         <button 
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none animate-fade-in-right"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={24} className="animate-zoom-in" /> : <Menu size={24} className="animate-zoom-in" />}
         </button>
       </div>
 
       {/* Mobile Navigation Menu */}
       <div 
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-lekompo-black/95 backdrop-blur-lg shadow-xl transform transition-transform ease-in-out duration-300 md:hidden",
+          "fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-lekompo-black/95 backdrop-blur-lg shadow-xl transform transition-transform ease-in-out duration-500 md:hidden",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -90,17 +91,18 @@ const Navbar = () => {
           </div>
           
           <div className="flex flex-col space-y-6 mt-10">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xl text-white hover:text-lekompo-yellow transition-colors duration-200"
+                className="text-xl text-white hover:text-lekompo-yellow transition-all duration-300 hover:translate-x-2 animate-fade-in-left"
+                style={{ animationDelay: `${index * 100}ms` }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white w-full mt-4">
+            <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white w-full mt-4 transition-transform duration-300 hover:scale-105 animate-fade-in-left" style={{ animationDelay: "500ms" }}>
               Book Now
             </Button>
           </div>

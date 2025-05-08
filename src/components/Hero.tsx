@@ -13,17 +13,17 @@ const Hero = () => {
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute w-96 h-96 rounded-full bg-lekompo-orange blur-[100px] -top-20 -left-20" />
-        <div className="absolute w-96 h-96 rounded-full bg-lekompo-blue blur-[100px] bottom-10 right-10" />
-        <div className="absolute w-64 h-64 rounded-full bg-lekompo-green blur-[80px] top-40 right-20" />
-        <div className="absolute w-64 h-64 rounded-full bg-lekompo-yellow blur-[80px] bottom-40 left-20" />
+        <div className="absolute w-96 h-96 rounded-full bg-lekompo-orange blur-[100px] -top-20 -left-20 animate-pulse" />
+        <div className="absolute w-96 h-96 rounded-full bg-lekompo-blue blur-[100px] bottom-10 right-10 animate-pulse" />
+        <div className="absolute w-64 h-64 rounded-full bg-lekompo-green blur-[80px] top-40 right-20 animate-pulse" />
+        <div className="absolute w-64 h-64 rounded-full bg-lekompo-yellow blur-[80px] bottom-40 left-20 animate-pulse" />
       </div>
       
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center text-center">
           {/* Logo */}
-          <div className="mb-8 max-w-xs">
+          <div className="mb-8 max-w-xs animate-zoom-in">
             <img 
               src="/lovable-uploads/dd9844ba-d164-4692-ae14-b080e7d207b9.png" 
               alt="Lekompo Chillas Mix Logo" 
@@ -32,25 +32,25 @@ const Hero = () => {
           </div>
           
           <div className="animate-float">
-            <span className="inline-block py-1 px-3 rounded-full bg-lekompo-blue/30 text-lekompo-yellow text-sm font-medium mb-6">
+            <span className="inline-block py-1 px-3 rounded-full bg-lekompo-blue/30 text-lekompo-yellow text-sm font-medium mb-6 animate-fade-in-up delay-200">
               June 15, 2025 • Central Park Amphitheater
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="gradient-text">LEKOMPO</span> <br />
-            <span className="gradient-text-alt">CHILLAS MIX</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up delay-300">
+            <span className="gradient-text animate-gradient">LEKOMPO</span> <br />
+            <span className="gradient-text-alt animate-gradient">CHILLAS MIX</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8 animate-fade-in-up delay-400">
             Experience the ultimate playlist event where artists perform their hit songs with fans and industry faces, creating unforgettable moments.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8 py-6 text-lg">
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
+            <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8 py-6 text-lg transition-transform hover:scale-105 duration-300">
               Get Tickets
             </Button>
-            <Button variant="outline" className="border-lekompo-yellow text-white hover:bg-lekompo-yellow/20 px-8 py-6 text-lg">
+            <Button variant="outline" className="border-lekompo-yellow text-white hover:bg-lekompo-yellow/20 px-8 py-6 text-lg transition-transform hover:scale-105 duration-300">
               View Lineup
             </Button>
           </div>
@@ -63,7 +63,7 @@ const Hero = () => {
               { number: "3", label: "Event Stages" },
               { number: "1000+", label: "Fans Expected" }
             ].map((stat, index) => (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className={`flex flex-col items-center animate-fade-in-up delay-${(index + 1) * 100}`}>
                 <span className={index % 2 === 0 ? "gradient-text text-3xl md:text-4xl font-bold" : "gradient-text-alt text-3xl md:text-4xl font-bold"}>
                   {stat.number}
                 </span>
@@ -75,7 +75,7 @@ const Hero = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse-gentle">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-gray-400 mb-2">Scroll Down</span>
         <div className="w-[2px] h-8 bg-gradient-to-b from-lekompo-blue to-lekompo-green" />
       </div>

@@ -20,11 +20,11 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-24 bg-gradient-to-b from-lekompo-dark to-lekompo-dark/90">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <span className="inline-block py-1 px-3 rounded-full bg-lekompo-purple/30 text-lekompo-orange text-sm font-medium mb-4">
             Captured Moments
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Event <span className="gradient-text">Gallery</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Event <span className="gradient-text animate-gradient">Gallery</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Experience the energy and excitement from our previous events. These moments capture the essence of Lekompo Balcony Mix.
           </p>
@@ -35,16 +35,17 @@ const Gallery = () => {
             <div 
               key={index} 
               className={cn(
-                "overflow-hidden rounded-lg cursor-pointer hover:scale-[1.02] transition-all duration-300",
+                "overflow-hidden rounded-lg cursor-pointer hover:scale-[1.02] transition-all duration-500 animate-fade-in-up",
                 index === 0 ? "md:col-span-2 md:row-span-2" : "",
                 index === 3 ? "lg:col-span-2" : ""
               )}
+              style={{ animationDelay: `${Math.min(index * 100, 700)}ms` }}
               onClick={() => setSelectedImage(image)}
             >
               <img 
                 src={image} 
                 alt={`Event gallery image ${index + 1}`}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 style={{ aspectRatio: index === 0 ? "16/9" : "1/1" }}
               />
             </div>
@@ -53,7 +54,7 @@ const Gallery = () => {
       </div>
       
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-5xl bg-lekompo-dark/90 backdrop-blur-lg border-lekompo-purple">
+        <DialogContent className="max-w-5xl bg-lekompo-dark/90 backdrop-blur-lg border-lekompo-purple animate-zoom-in">
           <img src={selectedImage || ""} alt="Gallery preview" className="w-full h-auto object-contain max-h-[80vh]" />
         </DialogContent>
       </Dialog>
