@@ -27,15 +27,15 @@ const ArtistCard = ({ name, image, role, genre, className }: ArtistCardProps) =>
       </div>
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-lekompo-dark via-transparent to-transparent opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-lekompo-black via-transparent to-transparent opacity-80" />
       
       {/* Artist Info */}
       <div className="absolute bottom-0 left-0 right-0 p-4 transition-all duration-300">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-xs font-medium px-2 py-1 rounded-full bg-lekompo-orange/70">
+          <span className="text-xs font-medium px-2 py-1 rounded-full bg-lekompo-yellow/70">
             {genre}
           </span>
-          <span className="text-xs px-2 py-1 rounded-full bg-lekompo-purple/70">
+          <span className="text-xs px-2 py-1 rounded-full bg-lekompo-blue/70">
             {role}
           </span>
         </div>

@@ -65,18 +65,18 @@ const FeaturedArtists = () => {
     : artists.filter(artist => artist.genre === activeFilter);
     
   return (
-    <section id="artists" className="py-24 bg-lekompo-dark relative">
+    <section id="artists" className="py-24 bg-lekompo-black relative">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-lekompo-purple/10 rounded-bl-full blur-3xl opacity-20" />
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-lekompo-blue/10 rounded-bl-full blur-3xl opacity-20" />
       
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <span className="inline-block py-1 px-3 rounded-full bg-lekompo-purple/30 text-lekompo-orange text-sm font-medium mb-4">
+          <span className="inline-block py-1 px-3 rounded-full bg-lekompo-green/30 text-lekompo-yellow text-sm font-medium mb-4">
             The Lineup
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured <span className="gradient-text">Artists</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Meet the incredible talent that will be gracing our balcony stages. These artists will be performing their hit songs with fans and industry faces.
+            Meet the incredible talent that will be gracing our stages. These artists will be performing their hit songs with fans and industry faces.
           </p>
         </div>
         
@@ -89,8 +89,8 @@ const FeaturedArtists = () => {
               variant={activeFilter === filter ? "default" : "outline"}
               className={cn(
                 activeFilter === filter 
-                  ? "bg-lekompo-purple hover:bg-lekompo-orange"
-                  : "border-lekompo-purple text-white hover:bg-lekompo-purple/20"
+                  ? "bg-lekompo-blue hover:bg-lekompo-green"
+                  : "border-lekompo-yellow text-white hover:bg-lekompo-yellow/20"
               )}
             >
               {filter}
@@ -112,7 +112,7 @@ const FeaturedArtists = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button className="bg-lekompo-purple hover:bg-lekompo-orange text-white px-8">
+          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8">
             View All Artists
           </Button>
         </div>

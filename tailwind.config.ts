@@ -64,8 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				lekompo: {
-					purple: '#6E59A5',
 					orange: '#F97316',
+					yellow: '#FACC15',
+					green: '#65A30D',
+					blue: '#06B6D4',
+					black: '#0F0F0F',
 					light: '#E5DEFF',
 					dark: '#1A1F2C',
 				}

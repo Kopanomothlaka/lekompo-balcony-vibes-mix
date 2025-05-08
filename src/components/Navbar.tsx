@@ -34,14 +34,17 @@ const Navbar = () => {
     <nav 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-lekompo-dark/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+        isScrolled ? "bg-lekompo-black/90 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-2 text-xl font-display font-bold">
-          <Music2 className="h-6 w-6 text-lekompo-orange" />
-          <span className="gradient-text">Lekompo Mix</span>
+          <Music2 className="h-6 w-6 text-lekompo-yellow" />
+          <div>
+            <span className="gradient-text">LEKOMPO</span>
+            <span className="gradient-text-alt ml-1">CHILLAS MIX</span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}
@@ -50,12 +53,12 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-white hover:text-lekompo-orange transition-colors duration-200"
+              className="text-white hover:text-lekompo-blue transition-colors duration-200"
             >
               {link.name}
             </a>
           ))}
-          <Button className="bg-lekompo-purple hover:bg-lekompo-orange text-white">
+          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white">
             Book Now
           </Button>
         </div>
@@ -72,7 +75,7 @@ const Navbar = () => {
       {/* Mobile Navigation Menu */}
       <div 
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-lekompo-dark/95 backdrop-blur-lg shadow-xl transform transition-transform ease-in-out duration-300 md:hidden",
+          "fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-lekompo-black/95 backdrop-blur-lg shadow-xl transform transition-transform ease-in-out duration-300 md:hidden",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -91,13 +94,13 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xl text-white hover:text-lekompo-orange transition-colors duration-200"
+                className="text-xl text-white hover:text-lekompo-yellow transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <Button className="bg-lekompo-purple hover:bg-lekompo-orange text-white w-full mt-4">
+            <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white w-full mt-4">
               Book Now
             </Button>
           </div>

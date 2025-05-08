@@ -16,24 +16,24 @@
     --popover: 250 30% 15%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 255 49% 50%;
+    --primary: 190 94% 43%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 53%;
+    --secondary: 38 92% 50%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 250 20% 20%;
     --muted-foreground: 0 0% 80%;
 
-    --accent: 250 30% 80%;
-    --accent-foreground: 250 33% 13%;
+    --accent: 84 88% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 250 20% 25%;
     --input: 250 20% 25%;
-    --ring: 255 49% 50%;
+    --ring: 190 94% 43%;
 
     --radius: 0.5rem;
 
@@ -65,7 +65,12 @@
 
 /* Custom Gradient Text */
 .gradient-text {
-  @apply bg-gradient-to-r from-lekompo-purple to-lekompo-orange bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-lekompo-orange to-lekompo-yellow bg-clip-text text-transparent;
+}
+
+/* Custom Alternate Gradient Text */
+.gradient-text-alt {
+  @apply bg-gradient-to-r from-lekompo-green to-lekompo-blue bg-clip-text text-transparent;
 }
 
 /* Custom Scrollbar */
@@ -79,9 +84,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-lekompo-purple bg-opacity-80 rounded-full;
+  @apply bg-lekompo-blue bg-opacity-80 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-lekompo-orange;
+  @apply bg-lekompo-green;
 }
