@@ -1,0 +1,73 @@
+
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const Hero = () => {
+  return (
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      style={{
+        background: `radial-gradient(circle at center, rgba(110, 89, 165, 0.3) 0%, rgba(26, 31, 44, 1) 70%)`,
+      }}
+    >
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+        <div className="absolute w-96 h-96 rounded-full bg-lekompo-orange blur-[100px] -top-20 -left-20" />
+        <div className="absolute w-96 h-96 rounded-full bg-lekompo-purple blur-[100px] bottom-10 right-10" />
+      </div>
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col items-center text-center">
+          <div className="animate-float">
+            <span className="inline-block py-1 px-3 rounded-full bg-lekompo-purple/30 text-lekompo-orange text-sm font-medium mb-6">
+              June 15, 2025 • Central Park Amphitheater
+            </span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="gradient-text">Lekompo</span> <br />
+            <span className="text-white">Balcony Mix</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
+            Experience the ultimate playlist event where artists perform their hit songs with fans and industry faces, creating unforgettable moments.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button className="bg-lekompo-purple hover:bg-lekompo-orange text-white px-8 py-6 text-lg">
+              Get Tickets
+            </Button>
+            <Button variant="outline" className="border-lekompo-purple text-white hover:bg-lekompo-purple/20 px-8 py-6 text-lg">
+              View Lineup
+            </Button>
+          </div>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+            {[
+              { number: "20+", label: "Top Artists" },
+              { number: "8", label: "Hours of Music" },
+              { number: "3", label: "Event Stages" },
+              { number: "1000+", label: "Fans Expected" }
+            ].map((stat, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <span className="gradient-text text-3xl md:text-4xl font-bold">{stat.number}</span>
+                <span className="text-gray-300">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-pulse-gentle">
+        <span className="text-sm text-gray-400 mb-2">Scroll Down</span>
+        <div className="w-[2px] h-8 bg-gradient-to-b from-lekompo-purple to-lekompo-orange" />
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
