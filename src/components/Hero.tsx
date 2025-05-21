@@ -33,7 +33,7 @@ const Hero = () => {
           
           <div className="animate-float">
             <span className="inline-block py-1 px-3 rounded-full bg-lekompo-blue/30 text-lekompo-yellow text-sm font-medium mb-6 animate-fade-in-up delay-200">
-              June 15, 2025 • Central Park Amphitheater
+              24 May, 2025 • Meropa Casino Polokwane, Outdoor Arena
             </span>
           </div>
           
@@ -47,9 +47,13 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
-            <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8 py-6 text-lg transition-transform hover:scale-105 duration-300">
-              Get Tickets
-            </Button>
+            <Button
+  className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8 py-6 text-lg transition-transform hover:scale-105 duration-300"
+  onClick={() => window.location.href = 'https://www.howler.co.za/events/lekompo-mix-6-with-shebeshxt-kharishma-naqua-adb1'}
+>
+  Get Tickets
+</Button>
+
             <Button variant="outline" className="border-lekompo-yellow text-white hover:bg-lekompo-yellow/20 px-8 py-6 text-lg transition-transform hover:scale-105 duration-300">
               View Lineup
             </Button>
@@ -60,7 +64,7 @@ const Hero = () => {
             {[
               { number: "20+", label: "Top Artists" },
               { number: "8", label: "Hours of Music" },
-              { number: "3", label: "Event Stages" },
+              { number: "0", label: "Event Stages" },
               { number: "1000+", label: "Fans Expected" }
             ].map((stat, index) => (
               <div key={index} className={`flex flex-col items-center animate-fade-in-up delay-${(index + 1) * 100}`}>

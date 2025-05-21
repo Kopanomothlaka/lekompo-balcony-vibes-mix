@@ -7,56 +7,44 @@ import { Button } from "@/components/ui/button";
 const FeaturedArtists = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   
-  const filters = ["All", "Hip-Hop", "R&B", "Afrobeats", "Pop"];
+  const filters = ["Lekompo Artist" ,"Lekompo Producer"];
   
   const artists = [
     {
-      name: "Doja Cat",
-      image: "https://images.unsplash.com/photo-1565035010268-a3816f98589a?q=80&w=776&auto=format&fit=crop",
-      role: "Headliner",
-      genre: "Hip-Hop"
-    },
-    {
-      name: "Burna Boy",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=870&auto=format&fit=crop",
-      role: "Featured",
-      genre: "Afrobeats"
-    },
-    {
-      name: "SZA",
-      image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=987&auto=format&fit=crop",
+      name: "Shebeshit",
+      image: "/lovable-uploads/shxt.jpg",
       role: "Special Guest",
-      genre: "R&B"
+      genre: "Lekompo Artist"
     },
     {
-      name: "Wizkid",
-      image: "https://images.unsplash.com/photo-1598387993441-a364f854c3a1?q=80&w=976&auto=format&fit=crop",
+      name: "Kharishma",
+      image: "/lovable-uploads/kharishma.jpg",
       role: "Featured",
-      genre: "Afrobeats"
+      genre: "Lekompo Artist"
     },
     {
-      name: "Drake",
-      image: "https://images.unsplash.com/photo-1542624937-8d1e9f53c1b9?q=80&w=987&auto=format&fit=crop",
-      role: "Headliner",
-      genre: "Hip-Hop"
-    },
-    {
-      name: "Adele",
-      image: "https://images.unsplash.com/photo-1601288496920-b6154fe3626a?q=80&w=987&auto=format&fit=crop",
+      name: "Naqua SA",
+      image: "/lovable-uploads/naqua.jpeg",
       role: "Special Guest",
-      genre: "Pop"
+      genre: "Lekompo Producer"
     },
     {
-      name: "The Weeknd",
-      image: "https://images.unsplash.com/photo-1575672913784-11a7cd4f25df?q=80&w=987&auto=format&fit=crop",
+      name: "Shandesh",
+      image: "/lovable-uploads/shandesh.jpg",
       role: "Featured",
-      genre: "Pop"
+      genre: "Lekompo Artist"
     },
     {
-      name: "Beyoncé",
-      image: "https://images.unsplash.com/photo-1618655107892-8e7f78d62ec4?q=80&w=987&auto=format&fit=crop",
-      role: "Headliner",
-      genre: "R&B"
+      name: "Janesh",
+      image: "/lovable-uploads/janesh.jpg",
+      role: "Featured",
+      genre: "Lekompo Artists"
+    },
+    {
+      name: "Hitboss",
+      image: "/lovable-uploads/hitboss.jpeg",
+      role: "Featured",
+      genre: "Lekompo Producer"
     }
   ];
   
@@ -113,11 +101,7 @@ const FeaturedArtists = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12 animate-fade-in-up delay-500">
-          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white px-8 transition-transform duration-300 hover:scale-105">
-            View All Artists
-          </Button>
-        </div>
+        
       </div>
     </section>
   );

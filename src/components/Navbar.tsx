@@ -25,7 +25,6 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "Artists", href: "#artists" },
-    { name: "Schedule", href: "#schedule" },
     { name: "Gallery", href: "#gallery" },
     { name: "Contact", href: "#contact" }
   ];
@@ -59,8 +58,9 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white transition-transform duration-300 hover:scale-105 animate-fade-in-right" style={{ animationDelay: "500ms" }}>
-            Book Now
+          <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white transition-transform duration-300 hover:scale-105 animate-fade-in-right" style={{ animationDelay: "500ms" }}
+          onClick={() => window.location.href = 'https://www.howler.co.za/events/lekompo-mix-6-with-shebeshxt-kharishma-naqua-adb1'}>
+            Get Tickets
           </Button>
         </div>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button className="bg-lekompo-blue hover:bg-lekompo-green text-white w-full mt-4 transition-transform duration-300 hover:scale-105 animate-fade-in-left" style={{ animationDelay: "500ms" }}>
-              Book Now
+              Get Tickets
             </Button>
           </div>
         </div>
